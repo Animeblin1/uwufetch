@@ -2,6 +2,8 @@
 
 A kawaii system fetch script for PowerShell with ASCII art and cute phrases~
 
+[Русская версия](README.ru.md) | **English**
+
 ## ✨ Features
 
 - 🎨 Beautiful UwU ASCII art
