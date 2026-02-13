@@ -34,28 +34,22 @@ if (!(Test-Path $fetchDir)) {
 $scriptPath = "$fetchDir\uwu_fetch.ps1"
 
 $scriptContent = @'
-$border = "      ✧ ──────────────────────────────── ✧"
-
-Write-Host ""
-Write-Host $border -ForegroundColor DarkMagenta
 Write-Host ""
 
 $artLines = @(
-    "      ██╗   ██╗    ██╗    ██╗    ██╗   ██╗"
-    "      ██║   ██║    ██║    ██║    ██║   ██║"
-    "      ██║   ██║    ██║ █╗ ██║    ██║   ██║"
-    "      ██║   ██║    ██║███╗██║    ██║   ██║"
-    "      ╚██████╔╝    ╚███╔███╔╝    ╚██████╔╝"
-    "       ╚═════╝      ╚══╝╚══╝      ╚═════╝"
+    "  ██╗   ██╗  ██╗    ██╗  ██╗   ██╗"
+    "  ██║   ██║  ██║    ██║  ██║   ██║"
+    "  ██║   ██║  ██║ █╗ ██║  ██║   ██║"
+    "  ██║   ██║  ██║███╗██║  ██║   ██║"
+    "  ╚██████╔╝  ╚███╔███╔╝  ╚██████╔╝"
+    "   ╚═════╝    ╚══╝╚══╝    ╚═════╝"
 )
 
 foreach ($line in $artLines) {
     Write-Host $line -ForegroundColor Magenta
 }
 
-Write-Host "        ░░░░░░░      ░░░░░░░░      ░░░░░░░" -ForegroundColor DarkMagenta
 Write-Host ""
-Write-Host $border -ForegroundColor DarkMagenta
 
 $width = [console]::WindowWidth
 $os = Get-CimInstance Win32_OperatingSystem
