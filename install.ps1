@@ -151,15 +151,31 @@ if ($profileContent -notmatch [regex]::Escape($aliasLine)) {
 }
 
 Write-Host "`n✨ Applying changes... ✨`n" -ForegroundColor Magenta
-. $PROFILE
+
+try {
+    . $PROFILE
+    Write-Host "✓ Profile reloaded successfully" -ForegroundColor Green
+} catch {
+    Write-Host "⚠ Could not reload profile automatically" -ForegroundColor Yellow
+    Write-Host "Run this command to activate: . `$PROFILE" -ForegroundColor Cyan
+}
+
+if (Get-Command uwufetch -ErrorAction SilentlyContinue) {
+    Write-Host "✓ uwufetch command is now available!" -ForegroundColor Green
+} else {
+    Write-Host "⚠ uwufetch not loaded yet. Reload profile manually:" -ForegroundColor Yellow
+    Write-Host "  . `$PROFILE" -ForegroundColor Cyan
+}
 
 Write-Host "`n╔══════════════════════════════════════════════════╗" -ForegroundColor Cyan
 Write-Host "║  🎉 Installation complete! nyaa~ >w<             ║" -ForegroundColor Cyan
 Write-Host "╠══════════════════════════════════════════════════╣" -ForegroundColor Cyan
 Write-Host "║  UwU Fetch will now show on every launch!        ║" -ForegroundColor White
 Write-Host "║                                                  ║" -ForegroundColor White
-Write-Host "║  Commands:                                       ║" -ForegroundColor Yellow
-Write-Host "║    uwufetch  — run manually                      ║" -ForegroundColor Green
+Write-Host "║  If 'uwufetch' doesn't work right now:          ║" -ForegroundColor Yellow
+Write-Host "║    . `$PROFILE                                    ║" -ForegroundColor Green
+Write-Host "║                                                  ║" -ForegroundColor White
+Write-Host "║  Or restart PowerShell                           ║" -ForegroundColor Cyan
 Write-Host "║                                                  ║" -ForegroundColor White
 Write-Host "║  Script location:                                ║" -ForegroundColor Yellow
 Write-Host "║    C:\fetch\uwu_fetch.ps1                        ║" -ForegroundColor Magenta
