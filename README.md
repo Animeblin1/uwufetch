@@ -226,3 +226,5 @@ Inspired by neofetch and other fetch tools~
 ---
 
 ⭐ **Star this repo if you like it!** ⭐
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Animeblin1/uwufetch&type=date&legend=top-left)](https://www.star-history.com/#Animeblin1/uwufetch&type=date&legend=top-left)
