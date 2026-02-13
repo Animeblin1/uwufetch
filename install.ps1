@@ -1,4 +1,27 @@
+# UwU Fetch Installer for PowerShell
+# https://github.com/Animeblin1/uwufetch
+
 Write-Host "`n✨ Installing UwU Fetch... nyaa~ ✨`n" -ForegroundColor Magenta
+
+$psVersion = $PSVersionTable.PSVersion.Major
+if ($psVersion -lt 7) {
+    Write-Host "⚠ PowerShell $psVersion detected. PowerShell 7+ is required!" -ForegroundColor Red
+    Write-Host "`nInstalling PowerShell 7 via winget...`n" -ForegroundColor Yellow
+    
+    try {
+        winget install --id Microsoft.PowerShell --source winget --silent --accept-package-agreements --accept-source-agreements
+        Write-Host "`n✓ PowerShell 7 installed successfully!" -ForegroundColor Green
+        Write-Host "`nPlease restart your terminal and run this installer again in PowerShell 7 (pwsh)" -ForegroundColor Cyan
+        Write-Host "You can launch it by typing: pwsh`n" -ForegroundColor Yellow
+        exit
+    } catch {
+        Write-Host "✗ Failed to install PowerShell 7 via winget" -ForegroundColor Red
+        Write-Host "Please install manually from: https://aka.ms/powershell`n" -ForegroundColor Yellow
+        exit 1
+    }
+}
+
+Write-Host "✓ PowerShell $psVersion detected" -ForegroundColor Green
 
 $fetchDir = "C:\fetch"
 if (!(Test-Path $fetchDir)) {
